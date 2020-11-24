@@ -5,7 +5,7 @@ You can find that project here: https://github.com/Funbit/ets2-telemetry-server
 
 ![image](https://github.com/kosaendre/ets2-telemetry-server-enhanced-dashboard/blob/main/server/Html/skins/default-enhanced/dashboard.jpg?raw=true)
 
-I'm using ETS2 with a FOV setting that hides the dashboard while trucking, and I was in need of additional information that's not shown by the default dashboard.
+I'm using ETS2 with a FOV setting that hides the in-game dashboard while trucking. I use an external 7" display, and I was in need of additional information that's not shown by the default dashboard.
 These include:
 - parking brake lights,
 - engine brake lights,
@@ -15,7 +15,7 @@ These include:
 
 Additionally, I added blinking lights to indicate speeding.
 
-I also added some job-related information: time till next stop, remaining time and distance based on current navigation.
+I also added some job-related information: time till next stop, remaining time and distance based on current navigation settings.
 
 # Installation
 Simply download as a zip and copy into the folder of the ETS2/ATS Dashboard project.
