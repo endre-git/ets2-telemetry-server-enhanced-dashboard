@@ -1,5 +1,6 @@
 # ets2-telemetry-server-enhanced-dashboard
 This is a replacement default dashboard for ets2-telemetry-server.
+
 You can find that project here: https://github.com/Funbit/ets2-telemetry-server
 
 I'm using ETS2 with a FOV setting that hides the dashboard while trucking, and I was in need of additional information that's not shown by the default dashboard.
@@ -14,5 +15,5 @@ Additionally, I added blinking lights to indicate speeding.
 
 I also added some job-related information: time till next stop, remaining time and distance based on current navigation.
 
-#Installation
+# Installation
 Simply download as a zip and copy into the folder of the ETS2/ATS Dashboard project
