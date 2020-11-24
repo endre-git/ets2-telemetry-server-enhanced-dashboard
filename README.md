@@ -3,6 +3,8 @@ This is a replacement default dashboard for ets2-telemetry-server.
 
 You can find that project here: https://github.com/Funbit/ets2-telemetry-server
 
+https://github.com/kosaendre/ets2-telemetry-server-enhanced-dashboard/blob/main/server/Html/skins/default-enhanced/dashboard.jpg?raw=true
+
 I'm using ETS2 with a FOV setting that hides the dashboard while trucking, and I was in need of additional information that's not shown by the default dashboard.
 These include:
 - parking brake lights
