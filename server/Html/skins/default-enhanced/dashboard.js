@@ -1,4 +1,120 @@
-﻿Funbit.Ets.Telemetry.Dashboard.prototype.initialize = function (skinConfig, utils) {
+﻿var shifter_layout_scania_12 = {
+    '-2' : 'RH',
+    '-1' : 'RL',
+    '0' : 'N',
+    '1' : '1L',
+    '2' : '1H',
+    '3' : '2L',
+    '4' : '2H',
+    '5' : '3L',
+    '6' : '3H',
+    '7' : '4L',
+    '8' : '4H',
+    '9' : '5L',
+    '10' : '5H',
+    '11' : '6L',
+    '12' : '6H'
+}
+
+var shifter_layout_scania_14 = {
+    '-2' : 'RH',
+    '-1' : 'RL',
+    '0' : 'N',
+    '1' : 'C1',
+    '2' : 'C2',
+    '3' : '1L',
+    '4' : '1H',
+    '5' : '2L',
+    '6' : '2H',
+    '7' : '3L',
+    '8' : '3H',
+    '9' : '4L',
+    '10' : '4H',
+    '11' : '5L',
+    '12' : '5H',
+    '13' : '6L',
+    '14' : '6H'
+}
+
+var shifter_layout_volvo_12 = {
+    '-2' : 'RH',
+    '-1' : 'RL',
+    '0' : 'N',
+    '1' : '1L',
+    '2' : '1H',
+    '3' : '2L',
+    '4' : '2H',
+    '5' : '3L',
+    '6' : '3H',
+    '7' : '4L',
+    '8' : '4H',
+    '9' : '5L',
+    '10' : '5H',
+    '11' : '6L',
+    '12' : '6H'
+}
+
+var shifter_layout_volvo_14 = {
+    '-4' : 'R4',
+    '-3' : 'R3',
+    '-2' : 'R2',
+    '-1' : 'R1',
+    '0' : 'N',
+    '1' : 'C1',
+    '2' : 'C2',
+    '3' : '1L',
+    '4' : '1H',
+    '5' : '2L',
+    '6' : '2H',
+    '7' : '3L',
+    '8' : '3H',
+    '9' : '4L',
+    '10' : '4H',
+    '11' : '5L',
+    '12' : '5H',
+    '13' : '6L',
+    '14' : '6H'
+}
+
+var shifter_layout_zf12 = {
+    '-2' : 'RH',
+    '-1' : 'RL',
+    '0' : 'N',
+    '1' : '1L',
+    '2' : '1H',
+    '3' : '2L',
+    '4' : '2H',
+    '5' : '3L',
+    '6' : '3H',
+    '7' : '4L',
+    '8' : '4H',
+    '9' : '5L',
+    '10' : '5H',
+    '11' : '6L',
+    '12' : '6H'
+}
+
+var shifter_layout_zf16 = {
+    '-2' : 'RH',
+    '-1' : 'RL',
+    '0' : 'N',
+    '1' : '1L',
+    '2' : '1H',
+    '3' : '2L',
+    '4' : '2H',
+    '5' : '3L',
+    '6' : '3H',
+    '7' : '4L',
+    '8' : '4H',
+    '9' : '5L',
+    '10' : '5H',
+    '11' : '6L',
+    '12' : '6H'
+}
+
+const shifter_layout = shifter_layout_zf12; // use 'auto' for automatic transmission
+
+Funbit.Ets.Telemetry.Dashboard.prototype.initialize = function (skinConfig, utils) {
     //
     // skinConfig - a copy of the skin configuration from config.json
     // utils - an object containing several utility functions (see skin tutorial for more information)
@@ -28,6 +144,19 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+
+function formatGear(data) {
+    var gear = data.truck.displayedGear; // use displayed gear
+    
+    if (shifter_layout != 'auto') 
+        return shifter_layout[gear];
+    else 
+        return data.truck.gear > 0
+        ? 'D' + data.truck.gear
+        : (data.truck.gear < 0 ? 'R' + Math.abs(data.truck.gear) : 'N');
+
+}
+
 Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     //
     // data - telemetry data JSON object
@@ -51,10 +180,9 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     // format odometer data as: 00000.0
     data.truck.odometer = utils.formatFloat(data.truck.odometer, 1);
     // convert gear to readable format
-    data.truck.gear = data.truck.displayedGear; // use displayed gear
-    data.truck.gear = data.truck.gear > 0
-        ? 'D' + data.truck.gear
-        : (data.truck.gear < 0 ? 'R' + Math.abs(data.truck.gear) : 'N');
+
+    data.truck.gear = formatGear(data);
+
     // convert rpm to rpm * 100
     data.truck.engineRpm = data.truck.engineRpm / 100;
     // calculate wear
@@ -89,5 +217,5 @@ Funbit.Ets.Telemetry.Dashboard.prototype.render = function (data, utils) {
     // we don't have anything custom to render in this skin,
     // but you may use jQuery here to update DOM or CSS
 
-
 }
+
