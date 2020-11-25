@@ -77,8 +77,7 @@ var shifter_layout_volvo_14 = {
 }
 
 var shifter_layout_zf12 = {
-    '-2' : 'RH',
-    '-1' : 'RL',
+    '-1' : 'R',
     '0' : 'N',
     '1' : '1L',
     '2' : '1H',
@@ -95,8 +94,7 @@ var shifter_layout_zf12 = {
 }
 
 var shifter_layout_zf16 = {
-    '-2' : 'RH',
-    '-1' : 'RL',
+    '-1' : 'R',
     '0' : 'N',
     '1' : '1L',
     '2' : '1H',
@@ -109,7 +107,11 @@ var shifter_layout_zf16 = {
     '9' : '5L',
     '10' : '5H',
     '11' : '6L',
-    '12' : '6H'
+    '12' : '6H',
+    '13' : '7L',
+    '14' : '7H',
+    '15' : '8L',
+    '16' : '8H'
 }
 
 const shifter_layout = 'auto'; // use 'auto' for automatic transmission
