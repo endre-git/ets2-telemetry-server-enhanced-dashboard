@@ -27,7 +27,7 @@ body {
 .dashboard {
   background-image: url("images/bg-off.png");
 }
-.dashboard.game-connected.yes {
+.dashboard.truck-electricOn.yes {
   background-image: url("images/bg-on.png");
 }
 .truck-speed[data-type="meter"] {
@@ -302,6 +302,17 @@ body {
 .truck-parkBrakeOn.yes {
   background-image: url("images/parking-brake-on.png");
 }
+.truck-batteryVoltageWarningOn {
+  background-image: url("images/battery-warning-off.png");
+  position: absolute;
+  left: 330px;
+  top: 425px;
+  width: 110px;
+  height: 82px;
+}
+.truck-batteryVoltageWarningOn.yes {
+  background-image: url("images/battery-warning-on.png");
+}
 
 .truck-overspeed {
   background-image: url("images/speed-warning-off.png");
@@ -402,6 +413,7 @@ body {
 .truck-oilPressureWarningOn,
 .truck-waterTemperatureWarningOn,
 .truck-fuelWarningOn,
+.truck-batteryVoltageWarningOn,
 .truck-cruiseControlSpeedRounded[data-value="0"],
 .truck-retarderBrake[data-value="0"],
 .trailer-mass,
@@ -416,27 +428,28 @@ body {
 ._jobDestionation {
   visibility: hidden;
 }
-.dashboard.game-connected.yes .truck-blinkerLeftOn,
-.dashboard.game-connected.yes .truck-blinkerRightOn,
-.dashboard.game-connected.yes .truck-cruiseControlOn,
-.dashboard.game-connected.yes .truck-lightsBeamHighOn,
-.dashboard.game-connected.yes .truck-lightsBeamLowOn,
-.dashboard.game-connected.yes .truck-lightsParkingOn,
-.dashboard.game-connected.yes .truck-parkBrakeOn,
-.dashboard.game-connected.yes .truck-retarderOn,
-.dashboard.game-connected.yes .truck-motorBrakeOn,
-.dashboard.game-connected.yes .truck-gear,
-.dashboard.game-connected.yes ._truckWearInfo,
-.dashboard.game-connected.yes ._trailerWearInfo,
-.dashboard.game-connected.yes .truck-odometer,
-.dashboard.game-connected.yes .truck-speedRounded,
-.dashboard.game-connected.yes .truck-overspeed,
-.dashboard.game-connected.yes .truck-wipersOn,
-.dashboard.game-connected.yes .truck-oilPressureWarningOn,
-.dashboard.game-connected.yes .truck-waterTemperatureWarningOn,
-.dashboard.game-connected.yes .truck-fuelWarningOn,
-.dashboard.game-connected.yes .truck-cruiseControlSpeedRounded:not([data-value="0"]),
-.dashboard.game-connected.yes .truck-retarderBrake:not([data-value="0"]) {
+.dashboard.truck-electricOn.yes .truck-blinkerLeftOn,
+.dashboard.truck-electricOn.yes .truck-blinkerRightOn,
+.dashboard.truck-electricOn.yes .truck-cruiseControlOn,
+.dashboard.truck-electricOn.yes .truck-lightsBeamHighOn,
+.dashboard.truck-electricOn.yes .truck-lightsBeamLowOn,
+.dashboard.truck-electricOn.yes .truck-lightsParkingOn,
+.dashboard.truck-electricOn.yes .truck-parkBrakeOn,
+.dashboard.truck-electricOn.yes .truck-retarderOn,
+.dashboard.truck-electricOn.yes .truck-motorBrakeOn,
+.dashboard.truck-electricOn.yes .truck-gear,
+.dashboard.truck-electricOn.yes ._truckWearInfo,
+.dashboard.truck-electricOn.yes ._trailerWearInfo,
+.dashboard.truck-electricOn.yes .truck-odometer,
+.dashboard.truck-electricOn.yes .truck-speedRounded,
+.dashboard.truck-electricOn.yes .truck-overspeed,
+.dashboard.truck-electricOn.yes .truck-wipersOn,
+.dashboard.truck-electricOn.yes .truck-oilPressureWarningOn,
+.dashboard.truck-electricOn.yes .truck-waterTemperatureWarningOn,
+.dashboard.truck-electricOn.yes .truck-fuelWarningOn,
+.dashboard.truck-electricOn.yes .truck-batteryVoltageWarningOn,
+.dashboard.truck-electricOn.yes .truck-cruiseControlSpeedRounded:not([data-value="0"]),
+.dashboard.truck-electricOn.yes .truck-retarderBrake:not([data-value="0"]) {
   visibility: visible;
 }
 
