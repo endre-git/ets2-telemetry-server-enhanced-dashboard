@@ -411,6 +411,7 @@ body {
 .job-remainingTime,
 ._jobIncome,
 ._navigationEstimatedDistance,
+.navigation-estimatedTime,
 ._jobSource,
 ._jobDestionation {
   visibility: hidden;
@@ -443,7 +444,8 @@ body {
 .hasJob.yes .trailer-name,
 .hasJob.yes .job-remainingTime,
 .hasJob.yes ._jobIncome,
-.hasJob.yes ._navigationEstimatedDistance
+.hasJob.yes ._navigationEstimatedDistance,
+.hasJob.yes .navigation-estimatedTime,
 .hasJob.yes ._jobSource,
 .hasJob.yes ._jobDestionation {
   visibility: visible;

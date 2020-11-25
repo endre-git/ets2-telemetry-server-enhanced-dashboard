@@ -143,12 +143,11 @@ Funbit.Ets.Telemetry.Dashboard.prototype.initialize = function (skinConfig, util
     });
 }
 
-function numberWithCommas(x) {
+Funbit.Ets.Telemetry.Dashboard.prototype.numberWithCommas = function(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-
-function formatGear(data) {
+Funbit.Ets.Telemetry.Dashboard.prototype.formatGear = function (data) {
     var gear = data.truck.displayedGear; // use displayed gear
     
     if (shifter_layout != 'auto') 
@@ -159,6 +158,25 @@ function formatGear(data) {
         : (data.truck.gear < 0 ? 'R' + Math.abs(data.truck.gear) : 'N');
 
 }
+
+Funbit.Ets.Telemetry.Dashboard.prototype.etaString = function (date) {
+
+    if (this.isIso8601(date)) {
+        var d = new Date(date);
+        var dys = d.getUTCDate() - 1;
+        var hrs = d.getUTCHours();
+        var mnt = d.getUTCMinutes();
+        var o = dys > 1 ? dys + ' days ' : (dys != 0 ? dys + ' day ' : '');
+        if (hrs > 0)
+            o += hrs > 1 ? hrs + ' hours ' : hrs + ' hour ';
+        if (mnt > 0)
+            o += mnt > 1 ? mnt + ' minutes' : mnt + ' minute';
+        if (!o)
+            o = '< 1 minute'
+        return o;
+    }
+    return date;
+};
 
 Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     //
@@ -184,7 +202,7 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     data.truck.odometer = utils.formatFloat(data.truck.odometer, 1);
     // convert gear to readable format
 
-    data.truck.gear = formatGear(data);
+    data.truck.gear = this.formatGear(data);
 
     // convert rpm to rpm * 100
     data.truck.engineRpm = data.truck.engineRpm / 100;
@@ -202,8 +220,8 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     data.truck.retarderOn = data.truck.retarderBrake ? data.truck.retarderBrake > 0 : false
     
     data.navigation.estimatedDistance = (data.navigation.estimatedDistance / 1000.0).toFixed(1);
-    data.navigation.estimatedTime = this.timeDifferenceToReadableString(data.navigation.estimatedTime);
-    data.job.income = numberWithCommas(data.job.income);
+    data.navigation.estimatedTime = this.etaString(data.navigation.estimatedTime);
+    data.job.income = this.numberWithCommas(data.job.income);
 
     data.game.nextRestStopTime = this.timeDifferenceToReadableString(data.game.nextRestStopTime);
     data.truck.overspeed = data.navigation.speedLimit > 0 && Math.abs(data.truck.speedRounded) > data.navigation.speedLimit;
