@@ -112,7 +112,8 @@ var shifter_layout_zf16 = {
     '12' : '6H'
 }
 
-const shifter_layout = shifter_layout_zf12; // use 'auto' for automatic transmission
+const shifter_layout = 'auto'; // use 'auto' for automatic transmission
+// const shifter_layout = shifter_layout_zf12; // use this sort of assignment for manual layouts
 
 Funbit.Ets.Telemetry.Dashboard.prototype.initialize = function (skinConfig, utils) {
     //
