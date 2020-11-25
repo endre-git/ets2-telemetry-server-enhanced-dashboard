@@ -16,7 +16,7 @@ These include:
 Additionally, I added a blinking red light to indicate speeding.
 
 I also added some job-related information: time till next stop, remaining time and distance based on current navigation settings.
-Finally, there's support for all the EU manual layouts, so the dashboard won't display D1-D10 if you're using manual.
+Finally, there's support for all the EU manual layouts, so the dashboard won't display D1-D10 if you're driving manual.
 
 # Installation
 Simply download as a zip and copy into the folder of the ETS2/ATS Dashboard project.
