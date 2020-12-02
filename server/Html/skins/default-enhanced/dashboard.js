@@ -223,7 +223,9 @@ Funbit.Ets.Telemetry.Dashboard.prototype.filter = function (data, utils) {
     data.navigation.estimatedTime = this.etaString(data.navigation.estimatedTime);
     data.job.income = this.numberWithCommas(data.job.income);
 
+    data.game.nextRestStopTime = new Date(new Date(data.game.nextRestStopTime).getTime() - 90 * 60000).toISOString().split('.')[0]+"Z";
     data.game.nextRestStopTime = this.timeDifferenceToReadableString(data.game.nextRestStopTime);
+    data.navigation.speedLimitSet = data.navigation.speedLimit > 0;
     data.truck.overspeed = data.navigation.speedLimit > 0 && Math.abs(data.truck.speedRounded) > data.navigation.speedLimit;
 
     return data;
